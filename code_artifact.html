@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="uk" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Студія Дизайну та Розробки — Замовлення сайтів</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        copper: {
+                            400: '#f97316',
+                            500: '#ea580c',
+                            600: '#c2410c',
+                        },
+                        tealish: {
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #090d16;
+        }
+
+        /* Ambient Background Overlay with Image */
+        .bg-custom-dungeon {
+            background-image: linear-gradient(to bottom, rgba(9, 13, 22, 0.78), rgba(9, 13, 22, 0.92)), url('Gemini_Generated_Image_e8dylue8dylue8dy.jfif');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(45, 212, 191, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+        }
+
+        .glass-card-locked {
+            background: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px dashed rgba(239, 68, 68, 0.3);
+            opacity: 0.75;
+        }
+
+        /* Glow effects */
+        .glow-copper {
+            box-shadow: 0 0 35px -10px rgba(234, 88, 12, 0.25);
+        }
+
+        .glow-teal {
+            box-shadow: 0 0 35px -10px rgba(45, 212, 191, 0.25);
+        }
+
+        /* Pulse animation for promo */
+        @keyframes pulseGlow {
+            0%, 100% { border-color: rgba(45, 212, 191, 0.4); }
+            50% { border-color: rgba(234, 88, 12, 0.6); }
+        }
+
+        .pulse-border {
+            animation: pulseGlow 3s infinite;
+        }
+    </style>
+</head>
+<body class="bg-custom-dungeon text-slate-100 min-h-screen selection:bg-teal-500 selection:text-slate-950 flex flex-col justify-between">
+
+    <header class="fixed top-0 left-0 right-0 z-50 glass-card border-b border-white/10 px-4 sm:px-8 py-4">
+        <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-orange-500 via-amber-500 to-teal-400 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-orange-500/20">
+                    <i class="fa-solid fa-code"></i>
+                </div>
+                <div>
+                    <span class="text-lg sm:text-xl font-extrabold bg-gradient-to-r from-white via-slate-200 to-teal-400 bg-clip-text text-transparent tracking-tight">
+                        Студія Розробки
+                    </span>
+                    <span class="block text-[10px] text-teal-400 uppercase tracking-widest font-bold">Веб-сайти & Дизайн</span>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <a href="https://t.me/designsndwebsites" onclick="playAudio('click')" target="_blank" class="px-4 sm:px-5 py-2.5 rounded-xl bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-400 hover:to-emerald-400 text-slate-950 font-bold text-xs sm:text-sm shadow-lg shadow-teal-500/20 flex items-center gap-2 transition-all transform hover:scale-105">
+                    <i class="fa-brands fa-telegram text-base"></i>
+                    <span>Приєднатись в Telegram</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-20 px-4 sm:px-6 max-w-7xl mx-auto space-y-16 flex-grow">
+        
+        <div class="text-center max-w-3xl mx-auto space-y-5">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-bold tracking-wide uppercase shadow-lg">
+                <span class="w-2 h-2 rounded-full bg-orange-400 animate-ping"></span>
+                ⏱ Термін виконання — максимально 1 день (до 24 годин)
+            </div>
+
+            <h1 class="text-3xl sm:text-6xl font-black tracking-tight leading-tight">
+                Створення сайтів та <br>
+                <span class="bg-gradient-to-r from-teal-400 via-emerald-400 to-orange-400 bg-clip-text text-transparent">професійний дизайн</span>
+            </h1>
+
+            <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+                Швидка розробка, адаптивний дизайн під смартфони, підключення форм замовлення та миттєва відправка заявки в Telegram.
+            </p>
+        </div>
+
+        <div class="space-y-6">
+            <div class="text-center">
+                <h2 class="text-2xl font-black text-white uppercase tracking-wider">Тарифи та послуги</h2>
+                <p class="text-xs text-slate-400 mt-1">Оберіть відповідний варіант та оформіть замовлення</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- 1. Простий сайт - 200 грн -->
+                <div class="glass-card p-6 sm:p-8 rounded-3xl flex flex-col justify-between group glow-teal">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-2xl bg-teal-500/10 border border-teal-500/30 text-teal-400 flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-bolt"></i>
+                            </div>
+                            <span class="text-xs font-bold uppercase tracking-widest text-teal-400 bg-teal-500/10 px-3 py-1 rounded-full border border-teal-500/20">200 грн</span>
+                        </div>
+
+                        <div>
+                            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 mb-2 rounded-lg bg-teal-500/15 text-teal-300 text-[11px] font-bold uppercase tracking-wider">
+                                <i class="fa-solid fa-clock"></i>
+                                Максимально 1 день
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">Простий сайт</h3>
+                            <p class="text-xs text-slate-400 mt-1">Компактний сайт-візитка або односторінковий лендінг.</p>
+                        </div>
+
+                        <div class="py-3 border-y border-slate-800">
+                            <div class="text-3xl font-black text-white">200 <span class="text-sm font-medium text-teal-400">грн</span></div>
+                        </div>
+
+                        <ul class="space-y-2.5 text-xs text-slate-300">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-teal-400"></i> Адаптив під смартфони</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-teal-400"></i> Форма зворотного зв'язку</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-teal-400"></i> Виконання до 24 годин</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="selectPackage('Простий сайт', 200)" class="mt-6 w-full py-3.5 rounded-xl bg-teal-500/10 hover:bg-teal-500 text-teal-300 hover:text-slate-950 font-extrabold text-xs uppercase tracking-wider transition-all border border-teal-500/30 flex items-center justify-center gap-2">
+                        Замовити за 200 грн
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- 2. Дизайн - 280 грн -->
+                <div class="glass-card p-6 sm:p-8 rounded-3xl flex flex-col justify-between group glow-copper">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/30 text-orange-400 flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-paintbrush"></i>
+                            </div>
+                            <span class="text-xs font-bold uppercase tracking-widest text-orange-400 bg-orange-500/10 px-3 py-1 rounded-full border border-orange-500/20">280 грн</span>
+                        </div>
+
+                        <div>
+                            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 mb-2 rounded-lg bg-orange-500/15 text-orange-300 text-[11px] font-bold uppercase tracking-wider">
+                                <i class="fa-solid fa-clock"></i>
+                                Максимально 1 день
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">Дизайн</h3>
+                            <p class="text-xs text-slate-400 mt-1">Графічне оформлення, елементи UI та стилізація.</p>
+                        </div>
+
+                        <div class="py-3 border-y border-slate-800">
+                            <div class="text-3xl font-black text-white">280 <span class="text-sm font-medium text-orange-400">грн</span></div>
+                        </div>
+
+                        <ul class="space-y-2.5 text-xs text-slate-300">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-orange-400"></i> Індивідуальний стиль</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-orange-400"></i> Підбір палітри та шрифтів</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-orange-400"></i> Готовність за 24h</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="selectPackage('Дизайн', 280)" class="mt-6 w-full py-3.5 rounded-xl bg-orange-500/10 hover:bg-orange-500 text-orange-300 hover:text-slate-950 font-extrabold text-xs uppercase tracking-wider transition-all border border-orange-500/30 flex items-center justify-center gap-2">
+                        Замовити за 280 грн
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- 3. Веб-дизайн - 340 грн -->
+                <div class="glass-card p-6 sm:p-8 rounded-3xl flex flex-col justify-between group glow-teal">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-pen-nib"></i>
+                            </div>
+                            <span class="text-xs font-bold uppercase tracking-widest text-cyan-400 bg-cyan-500/10 px-3 py-1 rounded-full border border-cyan-500/20">340 грн</span>
+                        </div>
+
+                        <div>
+                            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 mb-2 rounded-lg bg-cyan-500/15 text-cyan-300 text-[11px] font-bold uppercase tracking-wider">
+                                <i class="fa-solid fa-clock"></i>
+                                Максимально 1 день
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">Веб-дизайн</h3>
+                            <p class="text-xs text-slate-400 mt-1">Повноцінний UX/UI веб-макет інтерфейсу сайту.</p>
+                        </div>
+
+                        <div class="py-3 border-y border-slate-800">
+                            <div class="text-3xl font-black text-white">340 <span class="text-sm font-medium text-cyan-400">грн</span></div>
+                        </div>
+
+                        <ul class="space-y-2.5 text-xs text-slate-300">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-400"></i> Повна розробка макету</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-400"></i> Продумана структура сторінки</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-cyan-400"></i> Готовність за 24 години</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="selectPackage('Веб-дизайн', 340)" class="mt-6 w-full py-3.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500 text-cyan-300 hover:text-slate-950 font-extrabold text-xs uppercase tracking-wider transition-all border border-cyan-500/30 flex items-center justify-center gap-2">
+                        Замовити за 340 грн
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- 4. Повний сайт робочий - 800 грн -->
+                <div class="glass-card p-6 sm:p-8 rounded-3xl flex flex-col justify-between group pulse-border relative">
+                    <div class="absolute -top-3 right-6 bg-gradient-to-r from-teal-500 to-emerald-500 text-slate-950 text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-wider shadow-md">
+                        Хіт замовлень
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-rocket"></i>
+                            </div>
+                            <span class="text-xs font-bold uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-3 py-1 rounded-full border border-emerald-500/20">800 грн</span>
+                        </div>
+
+                        <div>
+                            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 mb-2 rounded-lg bg-emerald-500/15 text-emerald-300 text-[11px] font-bold uppercase tracking-wider">
+                                <i class="fa-solid fa-bolt"></i>
+                                Максимально 1 день
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">Повний сайт робочий</h3>
+                            <p class="text-xs text-slate-400 mt-1">Повністю функціональний сайт з інтеграцією бота.</p>
+                        </div>
+
+                        <div class="py-3 border-y border-slate-800">
+                            <div class="text-3xl font-black text-white">800 <span class="text-sm font-medium text-emerald-400">грн</span></div>
+                        </div>
+
+                        <ul class="space-y-2.5 text-xs text-slate-300">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Інтеграція Telegram-бота</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Повноцінний верстка та дизайн</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Запуск за 24 години</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="selectPackage('Повний сайт робочий', 800)" class="mt-6 w-full py-3.5 rounded-xl bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-400 hover:to-emerald-400 text-slate-950 font-extrabold text-xs uppercase tracking-wider transition-all shadow-lg shadow-teal-500/20 flex items-center justify-center gap-2">
+                        Замовити за 800 грн
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- 5. Крупний сайт - 1350 грн -->
+                <div class="glass-card p-6 sm:p-8 rounded-3xl flex flex-col justify-between group glow-copper">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-layer-group"></i>
+                            </div>
+                            <span class="text-xs font-bold uppercase tracking-widest text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/20">1350 грн</span>
+                        </div>
+
+                        <div>
+                            <div class="inline-flex items-center gap-1.5 px-2.5 py-1 mb-2 rounded-lg bg-amber-500/15 text-amber-300 text-[11px] font-bold uppercase tracking-wider">
+                                <i class="fa-solid fa-clock"></i>
+                                Максимально 1 день
+                            </div>
+                            <h3 class="text-2xl font-bold text-white">Крупний сайт</h3>
+                            <p class="text-xs text-slate-400 mt-1">Багатосторінковий проект із розширеним функціоналом.</p>
+                        </div>
+
+                        <div class="py-3 border-y border-slate-800">
+                            <div class="text-3xl font-black text-white">1350 <span class="text-sm font-medium text-amber-400">грн</span></div>
+                        </div>
+
+                        <ul class="space-y-2.5 text-xs text-slate-300">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Багатосторінкова структура</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Складні форми та анімації</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-amber-400"></i> Готовність за 24h</li>
+                        </ul>
+                    </div>
+
+                    <button onclick="selectPackage('Крупний сайт', 1350)" class="mt-6 w-full py-3.5 rounded-xl bg-amber-500/10 hover:bg-amber-500 text-amber-300 hover:text-slate-950 font-extrabold text-xs uppercase tracking-wider transition-all border border-amber-500/30 flex items-center justify-center gap-2">
+                        Замовити за 1350 грн
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- 6. Бета-програма у сайті - 1400 грн (ЗАБЛОКОВАНО) -->
+                <div class="glass-card-locked p-6 sm:p-8 rounded-3xl flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute top-4 right-4 bg-red-500/20 border border-red-500/40 text-red-400 text-[10px] font-black uppercase px-2.5 py-1 rounded-md flex items-center gap-1">
+                        <i class="fa-solid fa-lock"></i>
+                        Заблоковано
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <div class="w-12 h-12 rounded-2xl bg-red-500/10 border border-red-500/30 text-red-400 flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-flask"></i>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="inline-block text-[11px] font-bold text-red-400 uppercase tracking-widest mb-1">Експериментально</span>
+                            <h3 class="text-2xl font-bold text-slate-300">Бета-програма у сайті</h3>
+                            <p class="text-xs text-slate-500 mt-1">Доступ тимчасово закрито до виходу наступного оновлення.</p>
+                        </div>
+
+                        <div class="py-3 border-y border-slate-800/80">
+                            <div class="text-3xl font-black text-slate-500 line-through">1400 <span class="text-sm font-medium">грн</span></div>
+                        </div>
+
+                        <ul class="space-y-2.5 text-xs text-slate-500">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-xmark text-red-400"></i> Ранній доступ до нових фіч</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-xmark text-red-400"></i> Закритий тест функцій</li>
+                        </ul>
+                    </div>
+
+                    <button disabled class="mt-6 w-full py-3.5 rounded-xl bg-slate-800 text-slate-500 font-bold text-xs uppercase tracking-wider cursor-not-allowed border border-slate-700/50 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-lock text-xs"></i>
+                        Недоступно
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="max-w-3xl mx-auto pt-6" id="orderSection">
+            <div class="glass-card p-6 sm:p-10 rounded-3xl relative border border-slate-700/80 shadow-2xl">
+                
+                <div class="mb-8 border-b border-slate-800 pb-6 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div>
+                        <h2 class="text-2xl sm:text-3xl font-black text-white">Оформлення замовлення</h2>
+                        <p class="text-xs sm:text-sm text-slate-400 mt-1">Заповніть деталі замовлення. Повідомлення миттєво прийде в Telegram.</p>
+                    </div>
+                    <div class="px-3 py-1.5 rounded-xl bg-teal-500/10 border border-teal-500/30 text-teal-400 text-xs font-bold shrink-0">
+                        ⚡️ Термін: до 24 годин
+                    </div>
+                </div>
+
+                <form id="orderForm" onsubmit="submitOrder(event)" class="space-y-6">
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Ваше ім'я *</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
+                                    <i class="fa-solid fa-user text-sm"></i>
+                                </span>
+                                <input type="text" id="clientName" required placeholder="Ваше ім'я" class="w-full pl-10 pr-4 py-3.5 rounded-xl bg-slate-900/90 border border-slate-700 focus:border-teal-500 text-sm outline-none transition-all">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Telegram / Нікнейм / Телефон *</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
+                                    <i class="fa-brands fa-telegram text-sm"></i>
+                                </span>
+                                <input type="text" id="clientContact" required placeholder="@username або +380..." class="w-full pl-10 pr-4 py-3.5 rounded-xl bg-slate-900/90 border border-slate-700 focus:border-teal-500 text-sm outline-none transition-all">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Обрана послуга *</label>
+                            <div class="relative">
+                                <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
+                                    <i class="fa-solid fa-layer-group text-sm"></i>
+                                </span>
+                                <select id="serviceSelect" onchange="updatePriceCalculation()" class="w-full pl-10 pr-8 py-3.5 rounded-xl bg-slate-900/90 border border-slate-700 focus:border-teal-500 text-sm outline-none transition-all appearance-none cursor-pointer">
+                                    <option value="Простий сайт|200">Простий сайт — 200 грн</option>
+                                    <option value="Дизайн|280">Дизайн — 280 грн</option>
+                                    <option value="Веб-дизайн|340">Веб-дизайн — 340 грн</option>
+                                    <option value="Повний сайт робочий|800">Повний сайт робочий — 800 грн</option>
+                                    <option value="Крупний сайт|1350">Крупний сайт — 1350 грн</option>
+                                </select>
+                                <span class="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none text-slate-500">
+                                    <i class="fa-solid fa-chevron-down text-xs"></i>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Промокод на знижку</label>
+                            <div class="flex gap-2">
+                                <div class="relative flex-grow">
+                                    <span class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-500">
+                                        <i class="fa-solid fa-ticket text-sm"></i>
+                                    </span>
+                                    <input type="text" id="promoInput" placeholder="Введіть (наприклад: rv чи oktb)" class="w-full pl-10 pr-4 py-3.5 rounded-xl bg-slate-900/90 border border-slate-700 focus:border-teal-500 text-sm outline-none transition-all font-mono uppercase">
+                                </div>
+                                <button type="button" onclick="applyPromoCode()" class="px-4 py-3.5 rounded-xl bg-teal-500 hover:bg-teal-400 text-slate-950 font-extrabold text-xs uppercase transition-all shrink-0">
+                                    Застосувати
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Price Calculation Display -->
+                    <div class="p-4 rounded-2xl bg-slate-900/90 border border-slate-800 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-slate-400 font-medium block">До сплати:</span>
+                            <div class="flex items-center gap-3 mt-0.5">
+                                <span id="displayBasePrice" class="text-2xl font-black text-white">200 грн</span>
+                                <span id="displayOldPrice" class="hidden text-sm font-bold text-slate-500 line-through"></span>
+                                <span id="displayDiscountBadge" class="hidden text-[10px] font-black uppercase px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-400 border border-emerald-500/30"></span>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-[11px] font-bold text-orange-400 block"><i class="fa-solid fa-clock"></i> Термін: до 24h</span>
+                            <span class="text-[10px] text-slate-500">Гарантоване виконання</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Опис вашого завдання *</label>
+                        <textarea id="projectDetails" rows="4" required placeholder="Опишіть ваші побажання до сайту чи дизайну (кольори, тема, тексти, структури)..." class="w-full p-4 rounded-xl bg-slate-900/90 border border-slate-700 focus:border-teal-500 text-sm outline-none transition-all resize-none"></textarea>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="w-full py-4 px-6 rounded-xl bg-gradient-to-r from-teal-500 via-emerald-500 to-orange-500 hover:from-teal-400 hover:to-orange-400 text-slate-950 font-black text-sm uppercase tracking-wider transition-all shadow-xl shadow-teal-500/20 flex items-center justify-center gap-3 cursor-pointer transform active:scale-98">
+                        <span id="btnText">Надіслати замовлення</span>
+                        <i id="btnIcon" class="fa-solid fa-paper-plane"></i>
+                        <div id="btnSpinner" class="hidden w-5 h-5 border-2 border-slate-950 border-t-transparent rounded-full animate-spin"></div>
+                    </button>
+
+                </form>
+
+            </div>
+        </div>
+
+        <div class="glass-card p-8 rounded-3xl border border-teal-500/30 flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+            <div class="space-y-2">
+                <h3 class="text-xl font-extrabold text-white flex items-center justify-center sm:justify-start gap-2">
+                    <i class="fa-brands fa-telegram text-teal-400"></i>
+                    Наш Telegram Канал
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-300">Приєднуйтесь до нашої спільноти, щоб бачити нові роботи та оновлення.</p>
+            </div>
+            <a href="https://t.me/designsndwebsites" onclick="playAudio('click')" target="_blank" class="px-6 py-3.5 rounded-xl bg-teal-500 hover:bg-teal-400 text-slate-950 font-extrabold text-xs uppercase tracking-wider transition-all shadow-lg shadow-teal-500/20 shrink-0">
+                Приєднатись до каналу
+            </a>
+        </div>
+
+    </main>
+
+    <footer class="border-t border-slate-800/80 bg-slate-950/90 py-8 px-4 text-center">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+            <div>
+                © 2026 Студія Дизайну та Розробки. Усі права захищено.
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="https://t.me/designsndwebsites" onclick="playAudio('click')" target="_blank" class="hover:text-teal-400 transition-colors">Telegram Канал</a>
+                <a href="https://t.me/my_menedz_bot" onclick="playAudio('click')" target="_blank" class="hover:text-orange-400 transition-colors">Менеджер Бот (@my_menedz_bot)</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toastNotification" class="fixed bottom-6 right-6 z-50 transform translate-y-32 opacity-0 transition-all duration-300 pointer-events-none max-w-md w-full px-4 sm:px-0">
+        <div id="toastContent" class="glass-card p-4 rounded-2xl shadow-2xl flex items-center gap-3 border-l-4 border-teal-500">
+            <div id="toastIconContainer" class="w-9 h-9 rounded-xl bg-teal-500/20 text-teal-400 flex items-center justify-center shrink-0">
+                <i id="toastIcon" class="fa-solid fa-check"></i>
+            </div>
+            <div>
+                <h4 id="toastTitle" class="font-bold text-sm text-white">Сповіщення</h4>
+                <p id="toastMessage" class="text-xs text-slate-300">Текст...</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const BOT_TOKEN = "8884635639:AAGhBBbxqVtMIj7sEPL2Qc7irO9C4e3ToIs";
+        const CHAT_ID = "@designsndwebsites";
+
+        let appliedDiscount = 0; // 0%, 0.10 (10%), 0.25 (25%)
+        let appliedCodeName = "";
+
+        // Web Audio Synthesizer for UI Interactive Sounds
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+        function playAudio(type) {
+            try {
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                const now = audioCtx.currentTime;
+
+                if (type === 'click') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(400, now);
+                    osc.frequency.exponentialRampToValueAtTime(800, now + 0.05);
+                    gain.gain.setValueAtTime(0.15, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.05);
+                    osc.start(now);
+                    osc.stop(now + 0.05);
+                } else if (type === 'promo') {
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(523.25, now); // C5
+                    osc.frequency.setValueAtTime(659.25, now + 0.08); // E5
+                    osc.frequency.setValueAtTime(783.99, now + 0.16); // G5
+                    gain.gain.setValueAtTime(0.2, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.3);
+                    osc.start(now);
+                    osc.stop(now + 0.3);
+                } else if (type === 'success') {
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(440, now);
+                    osc.frequency.setValueAtTime(880, now + 0.1);
+                    gain.gain.setValueAtTime(0.25, now);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + 0.35);
+                    osc.start(now);
+                    osc.stop(now + 0.35);
+                }
+            } catch (e) {
+                console.log("Audio play blocked or unsupported");
+            }
+        }
+
+        function selectPackage(title, price) {
+            playAudio('click');
+            const select = document.getElementById('serviceSelect');
+            
+            for (let i = 0; i < select.options.length; i++) {
+                if (select.options[i].value.startsWith(title)) {
+                    select.selectedIndex = i;
+                    break;
+                }
+            }
+
+            updatePriceCalculation();
+            document.getElementById('orderSection').scrollIntoView({ behavior: 'smooth' });
+            showToast('Обрано тариф', `${title} — ${price} грн`, 'success');
+        }
+
+        function applyPromoCode() {
+            playAudio('click');
+            const code = document.getElementById('promoInput').value.trim().toLowerCase();
+
+            if (code === 'rv') {
+                appliedDiscount = 0.10;
+                appliedCodeName = 'rv (-10%)';
+                playAudio('promo');
+                showToast('Промокод активовано!', 'Отримано знижку 10% (код rv)', 'success');
+            } else if (code === 'oktb') {
+                appliedDiscount = 0.25;
+                appliedCodeName = 'oktb (-25%)';
+                playAudio('promo');
+                showToast('Чудовий промокод!', 'Отримано знижку 25% (код oktb)', 'success');
+            } else if (code === '') {
+                appliedDiscount = 0;
+                appliedCodeName = '';
+                showToast('Промокод скинуто', 'Введіть новий код за наявності', 'info');
+            } else {
+                appliedDiscount = 0;
+                appliedCodeName = '';
+                showToast('Невідомий промокод', 'Спробуйте rv (10%) або oktb (25%)', 'error');
+            }
+
+            updatePriceCalculation();
+        }
+
+        function updatePriceCalculation() {
+            const selectValue = document.getElementById('serviceSelect').value;
+            const parts = selectValue.split('|');
+            const basePrice = parseInt(parts[1], 10);
+
+            const displayBase = document.getElementById('displayBasePrice');
+            const displayOld = document.getElementById('displayOldPrice');
+            const displayBadge = document.getElementById('displayDiscountBadge');
+
+            if (appliedDiscount > 0) {
+                const finalPrice = Math.round(basePrice * (1 - appliedDiscount));
+                displayBase.innerText = `${finalPrice} грн`;
+                displayOld.innerText = `${basePrice} грн`;
+                displayOld.classList.remove('hidden');
+                displayBadge.innerText = `Знижка ${appliedDiscount * 100}%`;
+                displayBadge.classList.remove('hidden');
+            } else {
+                displayBase.innerText = `${basePrice} грн`;
+                displayOld.classList.add('hidden');
+                displayBadge.classList.add('hidden');
+            }
+        }
+
+        async function submitOrder(e) {
+            e.preventDefault();
+            playAudio('click');
+
+            const name = document.getElementById('clientName').value.trim();
+            const contact = document.getElementById('clientContact').value.trim();
+            const serviceSelect = document.getElementById('serviceSelect').value;
+            const details = document.getElementById('projectDetails').value.trim();
+
+            const [serviceTitle, basePriceStr] = serviceSelect.split('|');
+            const basePrice = parseInt(basePriceStr, 10);
+            const finalPrice = appliedDiscount > 0 ? Math.round(basePrice * (1 - appliedDiscount)) : basePrice;
+
+            setFormLoading(true);
+
+            const promoInfoText = appliedDiscount > 0 ? `${appliedCodeName} (Знижка ${appliedDiscount * 100}%)` : 'Не застосовано';
+
+            const message = `
+🚀 <b>НОВЕ ЗАМОВЛЕННЯ!</b>
+━━━━━━━━━━━━━━━━━━━━━━━━
+📋 <b>Послуга:</b> <code>${escapeHtml(serviceTitle)}</code>
+⏱ <b>Термін виконання:</b> <b>Максимально 1 день (до 24 годин)</b>
+
+💰 <b>Базова ціна:</b> ${basePrice} грн
+🎟 <b>Промокод:</b> ${escapeHtml(promoInfoText)}
+💵 <b>ФІНАЛЬНА ЦІНА:</b> <b>${finalPrice} грн</b>
+
+👤 <b>Замовник:</b> ${escapeHtml(name)}
+📞 <b>Контакт:</b> ${escapeHtml(contact)}
+
+📝 <b>ДЕТАЛІ ЗАВДАННЯ:</b>
+<i>"${escapeHtml(details)}"</i>
+━━━━━━━━━━━━━━━━━━━━━━━━
+⏰ <i>${new Date().toLocaleString('uk-UA')}</i>
+            `.trim();
+
+            try {
+                const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: CHAT_ID,
+                        text: message,
+                        parse_mode: 'HTML'
+                    })
+                });
+
+                const data = await res.json();
+
+                if (data.ok) {
+                    playAudio('success');
+                    showToast('Заявку відправлено! 🎉', 'Наш менеджер зв\'яжеться з вами в найближчий час.', 'success');
+                    document.getElementById('orderForm').reset();
+                    appliedDiscount = 0;
+                    appliedCodeName = '';
+                    document.getElementById('promoInput').value = '';
+                    updatePriceCalculation();
+                } else {
+                    showToast('Помилка надсилання', 'Не вдалося доставити заявку в Telegram канал.', 'error');
+                }
+            } catch (err) {
+                console.error(err);
+                showToast('Помилка мережі', 'Перевірте ваше підключення до Інтернету.', 'error');
+            } finally {
+                setFormLoading(false);
+            }
+        }
+
+        function setFormLoading(loading) {
+            const btn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            const btnIcon = document.getElementById('btnIcon');
+            const btnSpinner = document.getElementById('btnSpinner');
+
+            if (loading) {
+                btn.disabled = true;
+                btn.classList.add('opacity-75', 'cursor-not-allowed');
+                btnText.innerText = 'Відправка...';
+                btnIcon.classList.add('hidden');
+                btnSpinner.classList.remove('hidden');
+            } else {
+                btn.disabled = false;
+                btn.classList.remove('opacity-75', 'cursor-not-allowed');
+                btnText.innerText = 'Надіслати замовлення';
+                btnIcon.classList.remove('hidden');
+                btnSpinner.classList.add('hidden');
+            }
+        }
+
+        function showToast(title, message, type = 'success') {
+            const toast = document.getElementById('toastNotification');
+            const toastTitle = document.getElementById('toastTitle');
+            const toastMessage = document.getElementById('toastMessage');
+            const toastContent = document.getElementById('toastContent');
+            const toastIcon = document.getElementById('toastIcon');
+            const toastIconContainer = document.getElementById('toastIconContainer');
+
+            toastTitle.innerText = title;
+            toastMessage.innerText = message;
+
+            if (type === 'error') {
+                toastContent.className = "glass-card p-4 rounded-2xl shadow-2xl flex items-center gap-3 border-l-4 border-red-500";
+                toastIconContainer.className = "w-9 h-9 rounded-xl bg-red-500/20 text-red-400 flex items-center justify-center shrink-0";
+                toastIcon.className = "fa-solid fa-triangle-exclamation";
+            } else {
+                toastContent.className = "glass-card p-4 rounded-2xl shadow-2xl flex items-center gap-3 border-l-4 border-teal-500";
+                toastIconContainer.className = "w-9 h-9 rounded-xl bg-teal-500/20 text-teal-400 flex items-center justify-center shrink-0";
+                toastIcon.className = "fa-solid fa-check";
+            }
+
+            toast.classList.remove('translate-y-32', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-32', 'opacity-0');
+            }, 4000);
+        }
+
+        function escapeHtml(text) {
+            return text
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        // Initialize price calculations on page load
+        window.onload = function() {
+            updatePriceCalculation();
+        };
+    </script>
+</body>
+</html>
