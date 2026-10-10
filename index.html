@@ -115,3 +115,541 @@
             overflow: hidden;
             cursor: pointer;
         }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(245, 158, 11, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px var(--primary-glow);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card.active {
+            border-color: var(--primary);
+            box-shadow: 0 0 25px var(--primary-glow);
+            background: rgba(30, 38, 48, 0.85);
+        }
+
+        .card.locked {
+            opacity: 0.6;
+            cursor: not-allowed;
+            filter: grayscale(0.6);
+        }
+
+        .card.locked:hover {
+            transform: none;
+            box-shadow: none;
+            border-color: var(--card-border);
+        }
+
+        .badge-lock {
+            position: absolute;
+            top: 15px; right: 15px;
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .badge-time {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--accent-green);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            width: fit-content;
+        }
+
+        .card h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .price-box {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 1.2rem;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .currency {
+            color: var(--primary);
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .card-btn {
+            width: 100%;
+            padding: 12px;
+            border-radius: 12px;
+            border: none;
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .card:hover .card-btn, .card.active .card-btn {
+            background: var(--primary);
+            color: #000;
+        }
+
+        /* Order Form Section */
+        .form-section {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 2.5rem;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .form-section h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(15, 19, 24, 0.7);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.25s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 12px var(--primary-glow);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .promo-box {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-apply {
+            padding: 0 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--card-border);
+            color: #fff;
+            border-radius: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .btn-apply:hover {
+            background: var(--primary);
+            color: #000;
+            border-color: var(--primary);
+        }
+
+        .price-summary {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 14px;
+            padding: 1.2rem;
+            margin: 1.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px dashed var(--card-border);
+        }
+
+        .summary-label {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+
+        .summary-price {
+            text-align: right;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-right: 8px;
+        }
+
+        .final-price {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--accent-green);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            border-radius: 14px;
+            border: none;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: #000;
+            font-size: 1.1rem;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 10px 25px var(--primary-glow);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px var(--primary-glow);
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            .form-section { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Розробка Сайтів & Дизайн</h1>
+            <p>Якісні веб-рішення, унікальний дизайн та швидке виконання замовлення.</p>
+            <a href="https://t.me/designsndwebsites" target="_blank" class="tg-btn-top">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.67-.52.36-.99.53-1.42.52-.47-.01-1.37-.26-2.03-.48-.82-.27-1.47-.42-1.42-.88.03-.24.38-.49 1.05-.75 4.12-1.79 6.87-2.97 8.25-3.54 3.92-1.63 4.73-1.92 5.26-1.93.12 0 .37.03.54.17.14.12.18.28.2.45-.02.07-.02.14-.03.22z"/></svg>
+                Приєднатись в Telegram канал
+            </a>
+        </header>
+
+        <div class="grid">
+            <div class="card" onclick="selectService('Простий сайт', 200, this)">
+                <div>
+                    <span class="badge-time">⚡️ Макс. 1 день</span>
+                    <h3>Простий сайт</h3>
+                    <p>Односторінковий сайт для швидкого старту вашого бізнесу або проєкту.</p>
+                </div>
+                <div>
+                    <div class="price-box">
+                        <span class="price">200</span>
+                        <span class="currency">грн</span>
+                    </div>
+                    <button class="card-btn">Обрати</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="selectService('Дизайн', 280, this)">
+                <div>
+                    <span class="badge-time">⚡️ Макс. 1 день</span>
+                    <h3>Дизайн</h3>
+                    <p>Сучасний графічний та інтерфейсний дизайн за вашими побажаннями.</p>
+                </div>
+                <div>
+                    <div class="price-box">
+                        <span class="price">280</span>
+                        <span class="currency">грн</span>
+                    </div>
+                    <button class="card-btn">Обрати</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="selectService('Веб-дизайн', 340, this)">
+                <div>
+                    <span class="badge-time">⚡️ Макс. 1 день</span>
+                    <h3>Веб-дизайн</h3>
+                    <p>Унікальний UX/UI макет для вашого майбутнього веб-сайту.</p>
+                </div>
+                <div>
+                    <div class="price-box">
+                        <span class="price">340</span>
+                        <span class="currency">грн</span>
+                    </div>
+                    <button class="card-btn">Обрати</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="selectService('Повний робочий сайт', 800, this)">
+                <div>
+                    <span class="badge-time">⚡️ Макс. 1 день</span>
+                    <h3>Повний робочий сайт</h3>
+                    <p>Готовий сайт з усіма приєднаними функціями, формами та логікою.</p>
+                </div>
+                <div>
+                    <div class="price-box">
+                        <span class="price">800</span>
+                        <span class="currency">грн</span>
+                    </div>
+                    <button class="card-btn">Обрати</button>
+                </div>
+            </div>
+
+            <div class="card" onclick="selectService('Крупний сайт', 1350, this)">
+                <div>
+                    <span class="badge-time">⚡️ Макс. 1 день</span>
+                    <h3>Крупний сайт</h3>
+                    <p>Масштабний веб-проєкт з багатьма сторінками та складним функціоналом.</p>
+                </div>
+                <div>
+                    <div class="price-box">
+                        <span class="price">1350</span>
+                        <span class="currency">грн</span>
+                    </div>
+                    <button class="card-btn">Обрати</button>
+                </div>
+            </div>
+
+            <div class="card locked">
+                <span class="badge-lock">🔒 Заблоковано</span>
+                <div>
+                    <span class="badge-time">⚡️ Макс. 1 день</span>
+                    <h3>Бета-програма</h3>
+                    <p>Експериментальні функції та розширені можливості сайту.</p>
+                </div>
+                <div>
+                    <div class="price-box">
+                        <span class="price">1400</span>
+                        <span class="currency">грн</span>
+                    </div>
+                    <button class="card-btn" disabled>Недоступно</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section" id="orderForm">
+            <h2>Оформлення замовлення</h2>
+            
+            <div class="form-group">
+                <label>Обрана послуга</label>
+                <input type="text" id="selectedService" class="form-control" value="Простий сайт" readonly>
+            </div>
+
+            <div class="form-group">
+                <label>Ваше ім'я або Telegram Username</label>
+                <input type="text" id="userName" class="form-control" placeholder="@username або ім'я">
+            </div>
+
+            <div class="form-group">
+                <label>Опис замовлення / Побажання</label>
+                <textarea id="userDesc" class="form-control" placeholder="Опишіть, що саме ви хочете бачити на сайті або в дизайні..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Промокод (якщо є)</label>
+                <div class="promo-box">
+                    <input type="text" id="promoInput" class="form-control" placeholder="Введіть промокод">
+                    <button type="button" class="btn-apply" onclick="applyPromo()">Застосувати</button>
+                </div>
+            </div>
+
+            <div class="price-summary">
+                <span class="summary-label">Разом до сплати:</span>
+                <div class="summary-price">
+                    <span class="old-price" id="oldPriceText" style="display: none;">200 грн</span>
+                    <span class="final-price" id="finalPriceText">200 грн</span>
+                </div>
+            </div>
+
+            <button class="btn-submit" onclick="sendOrder()">Відправити замовлення</button>
+        </div>
+    </div>
+
+    <script>
+        const BOT_TOKEN = '8884635639:AAGhBBbxqVtMIj7sEPL2Qc7irO9C4e3ToIs';
+        const CHANNEL_ID = '@designsndwebsites';
+
+        let currentPrice = 200;
+        let discountPercent = 0;
+        let isPromoApplied = false;
+
+        // Sound Generator (Web Audio API)
+        function playSound(type) {
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+
+                if (type === 'click') {
+                    osc.frequency.setValueAtTime(400, ctx.currentTime);
+                    gain.gain.setValueAtTime(0.1, ctx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.1);
+                    osc.start();
+                    osc.stop(ctx.currentTime + 0.1);
+                } else if (type === 'success') {
+                    osc.frequency.setValueAtTime(523.25, ctx.currentTime);
+                    osc.frequency.setValueAtTime(659.25, ctx.currentTime + 0.1);
+                    gain.gain.setValueAtTime(0.15, ctx.currentTime);
+                    gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.3);
+                    osc.start();
+                    osc.stop(ctx.currentTime + 0.3);
+                }
+            } catch (e) {}
+        }
+
+        function selectService(name, price, cardElement) {
+            playSound('click');
+            document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+            if(cardElement) cardElement.classList.add('active');
+
+            document.getElementById('selectedService').value = name;
+            currentPrice = price;
+            updatePriceDisplay();
+
+            document.getElementById('orderForm').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function applyPromo() {
+            playSound('click');
+            const code = document.getElementById('promoInput').value.trim().toLowerCase();
+            
+            if (code === 'rv') {
+                discountPercent = 10;
+                isPromoApplied = true;
+                alert('Промокод rv застосовано (-10%)!');
+            } else if (code === 'oktb') {
+                discountPercent = 25;
+                isPromoApplied = true;
+                alert('Промокод oktb застосовано (-25%)!');
+            } else {
+                discountPercent = 0;
+                isPromoApplied = false;
+                alert('Невірний промокод');
+            }
+            updatePriceDisplay();
+        }
+
+        function updatePriceDisplay() {
+            const oldPriceText = document.getElementById('oldPriceText');
+            const finalPriceText = document.getElementById('finalPriceText');
+
+            if (discountPercent > 0) {
+                const finalPrice = Math.round(currentPrice * (1 - discountPercent / 100));
+                oldPriceText.innerText = currentPrice + ' грн';
+                oldPriceText.style.display = 'inline';
+                finalPriceText.innerText = finalPrice + ' грн';
+            } else {
+                oldPriceText.style.display = 'none';
+                finalPriceText.innerText = currentPrice + ' грн';
+            }
+        }
+
+        async function sendOrder() {
+            const name = document.getElementById('userName').value.trim();
+            const desc = document.getElementById('userDesc').value.trim();
+            const service = document.getElementById('selectedService').value;
+            const finalPrice = document.getElementById('finalPriceText').innerText;
+
+            if (!name || !desc) {
+                alert('Будь ласка, заповніть ім\'я та опис замовлення!');
+                return;
+            }
+
+            playSound('success');
+
+            // Hiding Promo code using Telegram Spoiler Format
+            let promoLine = '';
+            if (isPromoApplied) {
+                promoLine = `\n🎁 <b>Промокод:</b> <tg-spoiler>||Застосовано||</tg-spoiler>`;
+            }
+
+            const text = `📥 <b>НОВА ЗАЯВКА НА САЙТ/ДИЗАЙН</b>\n\n` +
+                         `📌 <b>Послуга:</b> ${service}\n` +
+                         `⏱ <b>Термін виконання:</b> Максимально 1 день\n` +
+                         `👤 <b>Клієнт:</b> ${name}\n` +
+                         `💰 <b>Ціна:</b> ${finalPrice}${promoLine}\n\n` +
+                         `📝 <b>Опис завдання:</b>\n${desc}`;
+
+            try {
+                const response = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: CHANNEL_ID,
+                        text: text,
+                        parse_mode: 'HTML'
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.ok) {
+                    alert('Заявка успішно відправлена в Telegram канал!');
+                    document.getElementById('userName').value = '';
+                    document.getElementById('userDesc').value = '';
+                    document.getElementById('promoInput').value = '';
+                    discountPercent = 0;
+                    isPromoApplied = false;
+                    updatePriceDisplay();
+                } else {
+                    alert('Помилка відправки. Переконайся, що бот @my_menedz_bot є адміністратором у каналі @designsndwebsites!');
+                }
+            } catch (err) {
+                alert('Помилка підключення до мережі.');
+            }
+        }
+    </script>
+</body>
+</html>
